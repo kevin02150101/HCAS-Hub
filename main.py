@@ -14,6 +14,12 @@ from datetime import datetime
 from pathlib import Path
 from urllib.parse import quote_plus
 
+try:
+    from dotenv import load_dotenv
+    load_dotenv(Path(__file__).parent / ".env")
+except ImportError:
+    pass
+
 from fastapi import FastAPI, Request, Form, HTTPException, Depends, Body
 from fastapi.responses import (
     HTMLResponse,
